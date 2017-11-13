@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  node3:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        port: 30300
+    container_name: ethereum-node0
+    hostname: node3
+    ports:
+      - "8400:8400"
+      - "30300:30300"
+    command: "geth --port 30300 --rpc --rpcport 8400"
+  node2:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        port: 30301
+    container_name: ethereum-node31
+    hostname: node2
+    ports:
+      - "8401:8401"
+      - "30301:30301"
+    command: "geth --port 30301 --rpc --rpcport 8401"
+
+
+
+
